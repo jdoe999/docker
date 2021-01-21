@@ -1,0 +1,15 @@
+version: '3.3'
+
+services: 
+    php:
+      image: php:7.4-apache
+      ports:
+        - 8080:80
+      volumes:
+       - ./.docker/apache2/webroot:/var/www
+      #  - ./.docker/apache2/sites-enabled:/etc/apache2/sites-enabled
+      # - ./.docker/php/etc:/usr/local/etc/php
+       - ./.docker/apache2/apache2.conf:/etc/apache2/apache2.conf
+       - ./.docker/apache2/custom.d:/etc/apache2/custom.d
+volumes:
+  persistent:
